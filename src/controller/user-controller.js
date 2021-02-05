@@ -3,7 +3,7 @@ const jwt = require("@/utils/jwt");
 const userService = require("@/service/user-service");
 
 const userController = {
-  async getUserInfo(ctx, next) {
+  async getUserInfo(ctx) {
     const { header } = ctx.request;
     const { id } = jwt.parseToken(header);
     try {

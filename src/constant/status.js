@@ -1,6 +1,7 @@
 const statusConstants = {
-  SUCCESS_CODE: 200,
-  FAILED_CODE: 500,
+  DEFAULT_SUCCESS: 200,
+  DEFAULT_FAILED: 500,
+  INVALID_TOKEN: 1502,
 };
 
 module.exports = statusConstants;

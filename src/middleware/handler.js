@@ -1,4 +1,4 @@
-const { FAILED_CODE } = require("@/constant/status");
+const { DEFAULT_FAILED } = require("@/constant/status");
 
 const handler = {
   error() {
@@ -8,7 +8,7 @@ const handler = {
         const { code } = ctx.response.body;
         ctx.status = code;
       } catch (error) {
-        ctx.status = FAILED_CODE;
+        ctx.status = DEFAULT_FAILED;
       }
     };
   },

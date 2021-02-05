@@ -12,8 +12,8 @@ class Response {
     return this;
   }
 
-  failed() {
-    this.code = FAILED_CODE;
+  failed(code = FAILED_CODE) {
+    this.code = code;
     return this;
   }
 }

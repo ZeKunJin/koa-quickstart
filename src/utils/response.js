@@ -7,13 +7,15 @@ class Response {
     this.code = Number(code);
   }
 
-  success() {
-    this.code = SUCCESS_CODE;
+  success({ code = SUCCESS_CODE, message = this.message } = {}) {
+    this.code = code;
+    this.message = message;
     return this;
   }
 
-  failed(code = FAILED_CODE) {
+  failed({ code = FAILED_CODE, message = this.message } = {}) {
     this.code = code;
+    this.message = message;
     return this;
   }
 }

@@ -22,6 +22,10 @@ const authController = {
       ctx.body = new Response({ message }).failed();
     }
   },
+
+  getRoutes(ctx) {
+    ctx.body = new Response({ data: [] });
+  },
 };
 
 module.exports = authController;

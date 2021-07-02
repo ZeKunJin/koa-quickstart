@@ -1,14 +1,19 @@
-const bcrypt = require("bcrypt");
-const jwt = require("@/utils/jwt");
-const User = require("@/model/user");
-const {
+import bcrypt from "bcrypt";
+import jwt from "@/utils/jwt";
+import User from "@/model/user";
+import {
   LOGIN_ERROR,
   ACCOUNT_EXIST,
   ACCOUNT_NOT_EXIST,
-} = require("@/constant/string");
+} from "@/constant/string";
 
-const userService = {
-  async login({ username, password }) {
+export interface ILoginParams {
+  username: string;
+  password: string;
+}
+
+export default {
+  async login({ username, password }: ILoginParams): Promise<any> {
     try {
       const { id, password: hash } = await User.findOne({
         attributes: ["id", "password"],
@@ -24,7 +29,7 @@ const userService = {
     }
   },
 
-  register({ username, password }) {
+  register({ username, password }): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         const _user = await User.findOne({
@@ -44,7 +49,7 @@ const userService = {
     });
   },
 
-  getUserInfo(id) {
+  getUserInfo(id: string) {
     try {
       return new Promise(async (resolve, reject) => {
         const _user = await User.findOne({
@@ -58,5 +63,3 @@ const userService = {
     }
   },
 };
-
-module.exports = userService;

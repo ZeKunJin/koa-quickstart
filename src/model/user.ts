@@ -1,8 +1,8 @@
-const { DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
-const sequelize = require("@/utils/database");
+import { DataTypes } from "sequelize/types";
+import bcrypt from "bcrypt";
+import sequelize from "@/utils/database";
 
-const User = sequelize.define(
+export default sequelize.define(
   "user",
   {
     username: {
@@ -22,5 +22,3 @@ const User = sequelize.define(
     freezeTableName: true,
   }
 );
-
-module.exports = User;
